@@ -1,0 +1,26 @@
+.validator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  transition: background 50ms ease-in;
+
+  --invalid: #f59696;
+  --valid: #aed8ae;
+}
+
+.validator__input {
+  width: 33.333%;
+  padding: 20px 10px;
+  font-size: 32px;
+}
+
+.is--invalid {
+  background: var(--invalid);
+}
+
+.is--valid {
+  background: var(--valid);
+}
