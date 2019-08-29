@@ -11,15 +11,21 @@ const Validator = () => {
 
   return (
     <section className='validator'>
-      <h1>Valide your Identifier</h1>
-      <p>Please enter your desired identifier intothe following input;</p>
-      <input
-        onChange={({ target }) => validate(target.value)}
-        className='validator__input'
-        type='text'
-        name='validator'
-        id='validator'
-      />
+      <h1>Validate your Identifier</h1>
+      <div className='validator__control'>
+        <label htmlFor='validator'>
+          Please enter your desired variable name
+        </label>
+        <div>
+          <input
+            onChange={({ target }) => validate(target.value)}
+            className='validator__input'
+            type='text'
+            name='validator'
+            id='validator'
+          />
+        </div>
+      </div>
     </section>
   );
 };

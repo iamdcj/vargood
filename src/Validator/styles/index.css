@@ -11,8 +11,12 @@
   --valid: #aed8ae;
 }
 
-.validator__input {
+.validator__control {
   width: 33.333%;
+}
+
+.validator__input {
+  width: 100%;
   padding: 20px 10px;
   font-size: 32px;
 }
