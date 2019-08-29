@@ -4,7 +4,7 @@ import './styles/index.css';
 
 interface Props {}
 
-const Validator = () => {
+const Validator: React.FunctionComponent<Props> = () => {
   const validate = (identifier: string) => {
     console.log(identifier);
   };
