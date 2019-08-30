@@ -1,10 +1,11 @@
 # vargood
 
-JavaScript identifier validator tool built using React.
+JavaScript identifier validator tool built using React. 
+
 
 ### Why
 
-If you want to use an identifier, but aren't sure if JavaScript will allow it.
+I wanted to build a React app which utilises hooks and typescript.
 
 ### How
 
