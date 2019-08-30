@@ -1,0 +1,31 @@
+.validator {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 33.333%;
+  transition: background 50ms ease-in;
+
+  --invalid: #f59696;
+  --valid: #aed8ae;
+}
+
+
+.control__input {
+  width: 100%;
+  padding: 10px;
+  font-size: 32px;
+}
+
+
+.control--flex {
+  display: flex;
+}
+
+
+.is--invalid {
+  background: var(--invalid);
+}
+
+.is--valid {
+  background: var(--valid);
+}
