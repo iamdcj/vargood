@@ -1,6 +1,8 @@
 import React from 'react';
 import './styles/index.css';
 
+import { Rules } from './Components/Rules';
+
 interface Props {}
 
 const Validator: React.FunctionComponent<Props> = () => {
@@ -37,6 +39,7 @@ const Validator: React.FunctionComponent<Props> = () => {
           <label htmlFor='validator'>Strict mode?</label>
         </div>
       </div>
+      <Rules />
     </section>
   );
 };
