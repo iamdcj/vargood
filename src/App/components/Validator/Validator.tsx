@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './styles/index.css';
 
 interface Props {}
@@ -12,18 +11,30 @@ const Validator: React.FunctionComponent<Props> = () => {
   return (
     <section className='validator'>
       <h1>Validate your Identifier</h1>
-      <div className='validator__control'>
+      <div className='control'>
         <label htmlFor='validator'>
           Please enter your desired variable name
         </label>
         <div>
           <input
             onChange={({ target }) => validate(target.value)}
-            className='validator__input'
+            className='control__input'
             type='text'
             name='validator'
             id='validator'
           />
+        </div>
+        <div className='control  control--flex'>
+          <div>
+            <input
+              onChange={({ target }) => validate(target.value)}
+              className='control__input'
+              type='checkbox'
+              name='use-strict'
+              id='use-strict'
+            />
+          </div>
+          <label htmlFor='validator'>Strict mode?</label>
         </div>
       </div>
     </section>
