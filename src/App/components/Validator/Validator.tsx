@@ -1,8 +1,6 @@
 import React from 'react';
 import './styles/index.css';
 
-import { Rules } from './Components/Rules';
-
 interface Props {}
 
 const Validator: React.FunctionComponent<Props> = () => {
@@ -12,9 +10,9 @@ const Validator: React.FunctionComponent<Props> = () => {
 
   return (
     <section className='validator'>
-      <h1>Validate your Identifier</h1>
-      <div className='control'>
-        <label htmlFor='validator'>
+      {/* <h1 className='validator__title'>Validate Identifier</h1> */}
+      <div className='control control--fw'>
+        <label htmlFor='validator' className='validator__subtitle'>
           Please enter your desired variable name
         </label>
         <div>
@@ -26,20 +24,19 @@ const Validator: React.FunctionComponent<Props> = () => {
             id='validator'
           />
         </div>
-        <div className='control  control--flex'>
-          <div>
-            <input
-              onChange={({ target }) => validate(target.value)}
-              className='control__input'
-              type='checkbox'
-              name='use-strict'
-              id='use-strict'
-            />
-          </div>
-          <label htmlFor='validator'>Strict mode?</label>
-        </div>
       </div>
-      <Rules />
+      <div className='control  control--flex'>
+        <div>
+          <input
+            onChange={({ target }) => validate(target.value)}
+            className='control__input'
+            type='checkbox'
+            name='use-strict'
+            id='use-strict'
+          />
+        </div>
+        <label htmlFor='use-strict'>Strict mode?</label>
+      </div>
     </section>
   );
 };

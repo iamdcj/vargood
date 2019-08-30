@@ -1,9 +1,0 @@
-.rules__inner {
-  display: none;
-  position: absolute;
-}
-
-
-.is--visible .rules__inner {
-  display: block;
-}

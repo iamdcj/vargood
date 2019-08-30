@@ -9,10 +9,14 @@ const Rules: React.FunctionComponent<Props> = () => {
 
   return (
     <div className={`rules ${visible ? 'is--visible' : 'is--hidden'}`}>
-      <button onClick={() => toggleVisibility(!visible)}>
+      <button
+        className='rules__toggle'
+        onClick={() => toggleVisibility(!visible)}
+      >
         {visible ? 'hide' : 'show'} rules
       </button>
       <div className='rules__inner'>
+        <button onClick={() => toggleVisibility(false)}>Close</button>
         <h3>Identifier Rules</h3>
         <ul>
           <li>A-Z, $, or _ to start identifier.</li>

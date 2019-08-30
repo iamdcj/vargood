@@ -1,10 +1,14 @@
 body {
   margin: 0;
-  font-family: Helvetica, 'Helvetica Neue', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --ff-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+  --ff-body: Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --color-a: #e13206;
 }
 
 code {

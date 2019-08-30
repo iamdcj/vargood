@@ -10,15 +10,32 @@
 }
 
 
-.control__input {
+.validator__title {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: var(--ff-body);
+  margin-bottom: 12px;
+  color: var(--color-a);
+}
+
+.validator__subtitle {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.control--fw .control__input {
   width: 100%;
   padding: 10px;
   font-size: 32px;
+  margin-bottom: 6px;
+  color: var(--color-a);
 }
 
 
 .control--flex {
   display: flex;
+  justify-content: flex-end;
 }
 
 

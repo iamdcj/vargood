@@ -1,14 +1,19 @@
 .footer {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   padding: 10px 20px;
-  background: #e13206;
-  color: #fff;
+  color: var(--color-a);
   width: 100%;
+  border-bottom: 5px solid var(--color-a);
 }
 
 .footer a {
   color: currentColor;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 200;
   margin-left: 5px;
+  font-family: var(--ff-title);
+  text-decoration: none;
+  margin-bottom: 6px;
 }

@@ -9,7 +9,7 @@ const Footer: React.FunctionComponent<Props> = () => {
     <footer className='footer'>
       a thing by
       <a href='http://dcj.codes' target='_blank' rel='noopener noreferrer'>
-        DCJ
+        dcj
       </a>
     </footer>
   );

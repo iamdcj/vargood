@@ -1,0 +1,30 @@
+.rules {
+  justify-self: flex-end;
+}
+
+.rules__toggle {
+  background: rgba(0, 0, 0, .95);
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  text-transform: uppercase;
+  font-family: var(--ff-title);
+  font-weight: 600;
+}
+
+.rules__inner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  background: rgba(255, 255, 255, .95);
+  color: var(--color-a);
+}
+
+
+.is--visible .rules__inner {
+  display: block;
+}
