@@ -1,12 +1,15 @@
 import React from 'react';
 
+import './footer.css';
+
 interface Props {}
 
 const Footer: React.FunctionComponent<Props> = () => {
   return (
-    <footer>
+    <footer className='footer'>
+      a thing by
       <a href='http://dcj.codes' target='_blank' rel='noopener noreferrer'>
-        A thing by DCJ
+        DCJ
       </a>
     </footer>
   );
