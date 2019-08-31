@@ -27,7 +27,7 @@
 .validator__subtitle {
   display: block;
   font-size: 24px;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 
@@ -39,7 +39,7 @@
   width: 100%;
   padding: 10px;
   font-size: 32px;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 .controls {
@@ -66,8 +66,8 @@
 }
 
 .is--invalid .control--fw .control__input {
-  border-color: red;
-  outline: 2px solid red;
+  border: none;
+  outline: 2px solid var(--color-stop);
 }
 
 .is--valid {
@@ -77,6 +77,6 @@
 }
 
 .is--valid .control--fw .control__input {
-  border-color: green;
-  outline: 2px solid green;
+  border: none;
+  outline: 2px solid var(--ampelmann);
 }

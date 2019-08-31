@@ -4,28 +4,25 @@
   right: 0;
 }
 
-.rules__toggle {}
-
 .rules__inner {
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vw;
-  background: rgba(255, 255, 255, 1);
-  color: var(--color-a);
-}
-
-.rules__dismiss {
-  position: absolute;
-  top: 0;
   right: 0;
-  background: #000;
+  min-width: 25vw;
+  height: auto;
+  background: var(--color-a);
   color: #fff;
+  padding: 40px 20px 40px;
 }
 
+.rules__toggle {
+  position: relative;
+  z-index: 1;
+}
 
 .is--visible .rules__inner {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

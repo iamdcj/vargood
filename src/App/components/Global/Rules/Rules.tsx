@@ -16,17 +16,13 @@ const Rules: React.FunctionComponent<Props> = () => {
         {visible ? 'hide' : 'show'} rules
       </button>
       <div className='rules__inner'>
-        <button
-          className='rules__dismiss'
-          onClick={() => toggleVisibility(false)}
-        >
-          Close
-        </button>
-        <h3>Identifier Rules</h3>
-        <ul>
-          <li>A-Z, $, or _ to start identifier.</li>
-          <li>Following characters can contain digits.</li>
-        </ul>
+        <div className='rules__content'>
+          <h3>Identifier Rules</h3>
+          <ul>
+            <li>A-Z, $, or _ to start identifier.</li>
+            <li>Following characters can contain digits.</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
