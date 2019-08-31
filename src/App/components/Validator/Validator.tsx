@@ -54,46 +54,50 @@ const Validator: React.FunctionComponent<Props> = () => {
             />
           </div>
         </div>
-        <div className='control  control--flex'>
-          <div>
-            <input
-              onChange={({ target }) => handleRadio(target.value)}
-              className='control__input'
-              type='radio'
-              name='version'
-              id='es5'
-              value='es5'
-              checked={radioSelection === 'es5' ? true : false}
-            />
+        <legend className='control-group'>
+          <div className='controls'>
+            <div className='control  control--flex'>
+              <div>
+                <input
+                  onChange={({ target }) => handleRadio(target.value)}
+                  className='control__input'
+                  type='radio'
+                  name='version'
+                  id='es5'
+                  value='es5'
+                  checked={radioSelection === 'es5' ? true : false}
+                />
+              </div>
+              <label htmlFor='es5'>ES5</label>
+            </div>
+            <div className='control  control--flex'>
+              <div>
+                <input
+                  onChange={({ target }) => handleRadio(target.value)}
+                  className='control__input'
+                  type='radio'
+                  name='version'
+                  id='es6'
+                  value='es6'
+                  checked={radioSelection === 'es6' ? true : false}
+                />
+              </div>
+              <label htmlFor='es6'>ES6</label>
+            </div>
           </div>
-          <label htmlFor='es5'>ES5</label>
-        </div>
-        <div className='control  control--flex'>
-          <div>
-            <input
-              onChange={({ target }) => handleRadio(target.value)}
-              className='control__input'
-              type='radio'
-              name='version'
-              id='es6'
-              value='es6'
-              checked={radioSelection === 'es6' ? true : false}
-            />
+          <div className='control  control--flex control--checkbox'>
+            <div>
+              <input
+                onChange={({ target }) => handleStrict(target.checked)}
+                className='control__input'
+                type='checkbox'
+                name='use-strict'
+                id='use-strict'
+              />
+            </div>
+            <label htmlFor='use-strict'>Strict mode?</label>
           </div>
-          <label htmlFor='es6'>ES6</label>
-        </div>
-        <div className='control  control--flex'>
-          <div>
-            <input
-              onChange={({ target }) => handleStrict(target.checked)}
-              className='control__input'
-              type='checkbox'
-              name='use-strict'
-              id='use-strict'
-            />
-          </div>
-          <label htmlFor='use-strict'>Strict mode?</label>
-        </div>
+        </legend>
       </div>
     </section>
   );

@@ -30,6 +30,11 @@
   margin-bottom: 6px;
 }
 
+
+.control-group {
+  display: flex;
+}
+
 .control--fw .control__input {
   width: 100%;
   padding: 10px;
@@ -37,6 +42,14 @@
   margin-bottom: 6px;
 }
 
+.controls {
+  display: flex;
+  flex: 0 0 25%;
+}
+
+.controls .control {
+  margin-right: 10px
+}
 
 .control--flex {
   display: flex;
@@ -44,10 +57,26 @@
 }
 
 
+.control--checkbox {
+  margin-left: auto;
+}
+
 .is--invalid {
   background: var(--invalid);
 }
 
+.is--invalid .control--fw .control__input {
+  border-color: red;
+  outline: 2px solid red;
+}
+
 .is--valid {
   background: var(--valid);
+
+
+}
+
+.is--valid .control--fw .control__input {
+  border-color: green;
+  outline: 2px solid green;
 }
