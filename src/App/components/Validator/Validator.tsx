@@ -15,8 +15,6 @@ const Validator: React.FunctionComponent<Props> = () => {
   const [valid, validator] = useState(false);
 
   useEffect(() => {
-    console.log(radioSelection);
-
     switch (radioSelection) {
       case 'es6': {
         const valid = es6.test(value);
