@@ -2,13 +2,19 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 33.333%;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   transition: background 50ms ease-in;
 
   --invalid: #f59696;
   --valid: #aed8ae;
 }
 
+
+.validator__inner {
+  width: 50%;
+}
 
 .validator__title {
   font-size: 32px;

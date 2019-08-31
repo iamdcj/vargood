@@ -1,5 +1,7 @@
 .rules {
-  justify-self: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .rules__toggle {
