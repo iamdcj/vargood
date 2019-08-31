@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/index.css';
 import { es5, es5Strict, es6, es6Strict } from './_constants';
 
@@ -7,25 +7,29 @@ interface Props {}
 const Validator: React.FunctionComponent<Props> = () => {
   const validate = (identifier: string) => {
     setValue(identifier);
-
-    switch (radioSelection) {
-      case 'es6': {
-        const valid = es6.test(identifier);
-        validator(valid);
-        break;
-      }
-      default: {
-        const valid = es5.test(identifier);
-        validator(valid);
-        break;
-      }
-    }
   };
 
   const [isStrict, handleStrict] = useState(false);
   const [radioSelection, handleRadio] = useState('es5');
   const [value, setValue] = useState('');
   const [valid, validator] = useState(false);
+
+  useEffect(() => {
+    console.log(radioSelection);
+
+    switch (radioSelection) {
+      case 'es6': {
+        const valid = es6.test(value);
+        validator(valid);
+        break;
+      }
+      default: {
+        const valid = es5.test(value);
+        validator(valid);
+        break;
+      }
+    }
+  }, [isStrict, radioSelection, value]);
 
   return (
     <section

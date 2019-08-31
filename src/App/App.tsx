@@ -11,7 +11,7 @@ const App: React.SFC = () => {
     <main className='main'>
       <Rules />
       <Validator />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 };
