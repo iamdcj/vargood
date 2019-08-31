@@ -1,18 +1,16 @@
 # vargood
 
-JavaScript identifier validator tool built using React.
+JavaScript identifier validator tool built using React (bootstrapped with [Create React App](https://github.com/facebook/create-react-app)).
 
-Essentially a fork of [Mathias Bynens'](https://mathiasbynens.be/) [JS Identifier Validator](https://mothereff.in/js-variables#%E0%B2%A0%5f%E0%B2%A0).
+Essentially a fork of [Mathias Bynens'](https://mathiasbynens.be/) [JS Identifier Validator](https://mothereff.in/js-variables#%E0%B2%A0%5f%E0%B2%A0) tool.
 
 ### Why
 
-I wanted to build a React app which utilises hooks and typescript.
+I wanted to build a React app which utilises hooks and typescript, and wanted to cement my knowledge of JS' lexical grammar.
 
 ### How
 
 Validates the user input against the ECMAScript identifier rules.
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ---
 
