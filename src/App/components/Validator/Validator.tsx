@@ -62,7 +62,7 @@ const Validator: React.FunctionComponent<Props> = () => {
               checked={radioSelection === 'es5' ? true : false}
             />
           </div>
-          <label htmlFor='use-strict'></label>
+          <label htmlFor='es5'>ES5</label>
         </div>
         <div className='control  control--flex'>
           <div>
@@ -76,7 +76,7 @@ const Validator: React.FunctionComponent<Props> = () => {
               checked={radioSelection === 'es6' ? true : false}
             />
           </div>
-          <label htmlFor='use-strict'></label>
+          <label htmlFor='es6'>ES6</label>
         </div>
         <div className='control  control--flex'>
           <div>
