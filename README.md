@@ -1,7 +1,8 @@
 # vargood
 
-JavaScript identifier validator tool built using React. 
+JavaScript identifier validator tool built using React.
 
+Essentially a fork of [Mathias Bynens'](https://mathiasbynens.be/) [JS Identifier Validator](https://mothereff.in/js-variables#%E0%B2%A0%5f%E0%B2%A0).
 
 ### Why
 
