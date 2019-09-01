@@ -1,58 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './styles/index.css';
-import { es5, es6, format, messages } from './_constants';
 
-interface Props {}
+interface Props {
+  value: string;
+  message: string;
+  radioSelection: string;
+  setValue: (value: string) => void;
+  handleRadio: (value: string) => void;
+  handleStrict: (value: boolean) => void;
+}
 
-const Validator: React.FunctionComponent<Props> = () => {
-  const [isStrict, handleStrict] = useState(false);
-  const [radioSelection, handleRadio] = useState('es5');
-  const [value, setValue] = useState('');
-  const [valid, validator] = useState(false);
-  const [message, updateMessage] = useState('');
-
-  const runChecks = (version: any) => {
-    const validateFormat = new RegExp(format).test(value);
-    const validateKeyword = new RegExp(version.keyword).test(value);
-
-    if (!validateFormat) {
-      validator(false);
-      updateMessage(messages.format);
-    } else if (validateKeyword) {
-      validator(false);
-      updateMessage(messages.keyword);
-    } else {
-      validator(true);
-      updateMessage(messages.valid);
-    }
-  };
-
-  useEffect(() => {
-    if (!value) {
-      return updateMessage('');
-    }
-
-    switch (radioSelection) {
-      case 'es6': {
-        runChecks(es6);
-        break;
-      }
-      default: {
-        runChecks(es5);
-        break;
-      }
-    }
-  }, [isStrict, radioSelection, value]);
-
+const Validator: React.SFC<Props> = ({
+  value,
+  radioSelection,
+  message,
+  setValue,
+  handleRadio,
+  handleStrict
+}) => {
   return (
-    <section
-      className={`validator ${
-        value ? (valid ? 'is--valid' : 'is--invalid') : ''
-      }`}
-    >
+    <section className='validator'>
       <div className='validator__inner'>
         {/* <h1 className='validator__title'>Validate Identifier</h1> */}
-        <p>{message}</p>
         <div className='control control--fw'>
           <label htmlFor='validator' className='validator__subtitle'>
             Please enter your desired variable name
@@ -112,6 +81,8 @@ const Validator: React.FunctionComponent<Props> = () => {
             <label htmlFor='use-strict'>Strict mode?</label>
           </div>
         </legend>
+
+        <p>{message}</p>
       </div>
     </section>
   );

@@ -5,10 +5,6 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  transition: background 50ms ease-in;
-
-  --invalid: #f59696;
-  --valid: #aed8ae;
 }
 
 
@@ -54,29 +50,10 @@
 .control--flex {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 
 .control--checkbox {
   margin-left: auto;
-}
-
-.is--invalid {
-  background: var(--invalid);
-}
-
-.is--invalid .control--fw .control__input {
-  border: none;
-  outline: 2px solid var(--color-stop);
-}
-
-.is--valid {
-  background: var(--valid);
-
-
-}
-
-.is--valid .control--fw .control__input {
-  border: none;
-  outline: 2px solid var(--ampelmann);
 }

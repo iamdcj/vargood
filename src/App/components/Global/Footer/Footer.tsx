@@ -2,12 +2,20 @@ import React from 'react';
 
 import './footer.css';
 
-interface Props {}
+import classNames from 'classnames';
 
-const Footer: React.FunctionComponent<Props> = () => {
+interface Props {
+  valid: string;
+}
+
+const Footer: React.SFC<Props> = ({}) => {
+  const classes = classNames({
+    footer: true
+  });
+
   return (
-    <footer className='footer'>
-      a thing by
+    <footer className={classes}>
+      built by
       <a href='http://dcj.codes' target='_blank' rel='noopener noreferrer'>
         dcj
       </a>

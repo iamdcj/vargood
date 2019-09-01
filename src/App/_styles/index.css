@@ -5,4 +5,26 @@
   height: 100vh;
   justify-items: center;
   align-items: center;
+  transition: background 50ms ease-in;
+
+  --invalid: #f59696;
+  --valid: #aed8ae;
+}
+
+.is--invalid {
+  background: var(--invalid);
+}
+
+.is--invalid .control--fw .control__input {
+  border: none;
+  outline: 2px solid var(--color-stop);
+}
+
+.is--valid {
+  background: var(--valid);
+}
+
+.is--valid .control--fw .control__input {
+  border: none;
+  outline: 2px solid var(--ampelmann);
 }
