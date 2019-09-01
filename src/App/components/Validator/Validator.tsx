@@ -1,29 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import './styles/index.css';
-import { es5, es5Strict, es6, es6Strict } from './_constants';
+import { es5, es6, format, messages } from './_constants';
 
 interface Props {}
 
 const Validator: React.FunctionComponent<Props> = () => {
-  const validate = (identifier: string) => {
-    setValue(identifier);
-  };
-
   const [isStrict, handleStrict] = useState(false);
   const [radioSelection, handleRadio] = useState('es5');
   const [value, setValue] = useState('');
   const [valid, validator] = useState(false);
+  const [message, updateMessage] = useState('');
+
+  const runChecks = (version: any) => {
+    const validateFormat = new RegExp(format).test(value);
+    const validateKeyword = new RegExp(version.keyword).test(value);
+
+    if (!validateFormat) {
+      validator(false);
+      updateMessage(messages.format);
+    } else if (validateKeyword) {
+      validator(false);
+      updateMessage(messages.keyword);
+    } else {
+      validator(true);
+      updateMessage(messages.valid);
+    }
+  };
 
   useEffect(() => {
+    if (!value) {
+      return updateMessage('');
+    }
+
     switch (radioSelection) {
       case 'es6': {
-        const valid = es6.test(value);
-        validator(valid);
+        runChecks(es6);
         break;
       }
       default: {
-        const valid = es5.test(value);
-        validator(valid);
+        runChecks(es5);
         break;
       }
     }
@@ -37,13 +52,14 @@ const Validator: React.FunctionComponent<Props> = () => {
     >
       <div className='validator__inner'>
         {/* <h1 className='validator__title'>Validate Identifier</h1> */}
+        <p>{message}</p>
         <div className='control control--fw'>
           <label htmlFor='validator' className='validator__subtitle'>
             Please enter your desired variable name
           </label>
           <div>
             <input
-              onChange={({ target }) => validate(target.value)}
+              onChange={({ target }) => setValue(target.value)}
               className='control__input'
               type='text'
               name='validator'
