@@ -23,9 +23,13 @@ const Validator: React.SFC<Props> = ({
       <div className='validator__inner'>
         {/* <h1 className='validator__title'>Validate Identifier</h1> */}
         <div className='control control--fw'>
-          <label htmlFor='validator' className='validator__subtitle'>
-            Please enter your desired variable name
-          </label>
+          {value ? (
+            <p className='validator__subtitle'>{message}</p>
+          ) : (
+            <label htmlFor='validator' className='validator__subtitle'>
+              Please enter your desired variable name
+            </label>
+          )}
           <div>
             <input
               onChange={({ target }) => setValue(target.value)}
@@ -34,6 +38,7 @@ const Validator: React.SFC<Props> = ({
               name='validator'
               id='validator'
               value={value}
+              placeholder='foo'
             />
           </div>
         </div>
@@ -81,8 +86,6 @@ const Validator: React.SFC<Props> = ({
             <label htmlFor='use-strict'>Strict mode?</label>
           </div>
         </legend>
-
-        <p>{message}</p>
       </div>
     </section>
   );
