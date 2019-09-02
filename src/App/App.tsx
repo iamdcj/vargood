@@ -20,7 +20,10 @@ const App: React.FC = () => {
     const validateFormat = new RegExp(format).test(value);
     const validateKeyword = new RegExp(version.keyword).test(value);
 
-    if (!validateFormat) {
+    if (!value) {
+      validator('');
+      updateMessage('');
+    } else if (!validateFormat) {
       validator('invalid');
       updateMessage(messages.format);
     } else if (validateKeyword) {
@@ -33,13 +36,6 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!value) {
-      updateMessage('');
-      validator('');
-
-      return;
-    }
-
     switch (radioSelection) {
       case 'es6': {
         runChecks(es6);
