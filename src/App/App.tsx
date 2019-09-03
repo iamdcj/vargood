@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
-import { es5, es6, format, messages } from './_constants';
+import { es5, es5Strict, es6, es6Strict, format, messages } from './_constants';
 
 import { Rules } from './components/Global/Rules';
 import { Validator } from './components/Validator';
@@ -38,11 +38,19 @@ const App: React.FC = () => {
   useEffect(() => {
     switch (radioSelection) {
       case 'es6': {
-        runChecks(es6);
+        if (isStrict) {
+          runChecks(es6Strict);
+        } else {
+          runChecks(es6);
+        }
         break;
       }
       default: {
-        runChecks(es5);
+        if (isStrict) {
+          runChecks(es5Strict);
+        } else {
+          runChecks(es5);
+        }
         break;
       }
     }
