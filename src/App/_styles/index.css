@@ -20,6 +20,15 @@
   outline: 2px solid var(--color-stop);
 }
 
+.is--sketchy {
+  background: var(--color-hold);
+}
+
+.is--sketchy .control--fw .control__input {
+  border: none;
+  outline: 2px solid yellow;
+}
+
 .is--valid {
   background: var(--valid);
 }

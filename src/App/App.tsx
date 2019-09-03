@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
-import { es5, es5Strict, es6, es6Strict, format, messages } from './_constants';
+import {
+  es5,
+  es5Strict,
+  es6,
+  es6Strict,
+  sketchy,
+  format,
+  messages
+} from './_constants';
 
 import { Rules } from './components/Global/Rules';
 import { Validator } from './components/Validator';
@@ -19,6 +27,7 @@ const App: React.FC = () => {
   const runChecks = (version: any) => {
     const validateFormat = new RegExp(format).test(value);
     const validateKeyword = new RegExp(version.keyword).test(value);
+    const sketchyKeyword = new RegExp(sketchy).test(value);
 
     if (!value) {
       validator('');
@@ -29,6 +38,9 @@ const App: React.FC = () => {
     } else if (validateKeyword) {
       validator('invalid');
       updateMessage(messages.keyword);
+    } else if (sketchyKeyword) {
+      validator('sketchy');
+      updateMessage(messages.sketchy);
     } else {
       validator('valid');
       updateMessage(messages.valid);
