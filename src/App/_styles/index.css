@@ -26,7 +26,7 @@
 
 .is--sketchy .control--fw .control__input {
   border: none;
-  outline: 2px solid yellow;
+  outline: 2px solid #f3c92f;
 }
 
 .is--valid {
