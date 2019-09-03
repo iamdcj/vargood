@@ -3,8 +3,6 @@ import classNames from 'classnames';
 
 import {
   keywords,
-  es5Strict,
-  es6Strict,
   format,
   messages
 } from './_constants';
@@ -22,7 +20,7 @@ const App: React.FC = () => {
   const [validity, validator] = useState('');
   const [message, updateMessage] = useState('');
 
-  const runChecks = (version: any) => {
+  const runChecks = (version: string) => {
     const validateFormat = new RegExp(format).test(value);
     const validateKeyword = new RegExp(keywords[`${version}`]).test(value);
     const sketchyKeyword = new RegExp(keywords.warning).test(value);

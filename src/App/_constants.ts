@@ -1,6 +1,15 @@
 const format = /^(?:[\$A-Z_a-z])*$/;
 
-const keywords = {
+interface Keywords {
+  [es3: string]:  RegExp;
+  es5: RegExp;
+  es5Strict:  RegExp;
+  es6:  RegExp;
+  es6Strict: RegExp;
+  warning: RegExp;
+}
+
+const keywords: Keywords = {
   es3: /^(?:int|byte|char|goto|long|final|float|short|double|native|throws|boolean|abstract|volatile|transient|synchronized)$/,
   es5: /^(?:do|if|in|for|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|delete|export|import|return|switch|typeof|default|extends|finally|continue|debugger|function|arguments|instanceof)$/, 
   es5Strict:  /^(?:do|if|in|for|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|delete|export|import|return|switch|typeof|default|extends|finally|continue|debugger|function|arguments|instanceof|implements|let|private|public|yield|interface|package|protected|static)$/,
@@ -17,4 +26,4 @@ const messages = {
   valid: 'All Good 👍'
 };
 
-export { keywords, es5Strict, es6Strict, format, messages };
+export { keywords, format, messages };
