@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
 import {
-  es5,
+  keywords,
   es5Strict,
-  es6,
   es6Strict,
-  sketchy,
   format,
   messages
 } from './_constants';
@@ -26,13 +24,14 @@ const App: React.FC = () => {
 
   const runChecks = (version: any) => {
     const validateFormat = new RegExp(format).test(value);
-    const validateKeyword = new RegExp(version.keyword).test(value);
-    const sketchyKeyword = new RegExp(sketchy).test(value);
+    const validateKeyword = new RegExp(keywords[`${version}`]).test(value);
+    const sketchyKeyword = new RegExp(keywords.warning).test(value);
 
     if (!value) {
       validator('');
       updateMessage('');
     } else if (!validateFormat) {
+      //:todo - ensure escapes are handled correctly
       validator('invalid');
       updateMessage(messages.format);
     } else if (validateKeyword) {
@@ -51,17 +50,17 @@ const App: React.FC = () => {
     switch (radioSelection) {
       case 'es6': {
         if (isStrict) {
-          runChecks(es6Strict);
+          runChecks('es6Strict');
         } else {
-          runChecks(es6);
+          runChecks('es6');
         }
         break;
       }
       default: {
         if (isStrict) {
-          runChecks(es5Strict);
+          runChecks('es5Strict');
         } else {
-          runChecks(es5);
+          runChecks('es5');
         }
         break;
       }
