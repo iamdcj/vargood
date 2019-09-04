@@ -15,24 +15,20 @@ import './_styles/index.css';
 
 const App: React.FC = () => {
   const [isStrict, handleStrict] = useState(false);
-  const [radioSelection, handleRadio] = useState('es5');
+  const [radioSelection, handleRadio] = useState('es6');
   const [value, setValue] = useState('');
   const [validity, validator] = useState('');
   const [message, updateMessage] = useState('');
 
   const runChecks = (version: string) => {
-    const validateFormat = new RegExp(format).test(value);
-    const validateKeyword = new RegExp(keywords[`${version}`]).test(value);
+    const validFormat = new RegExp(format).test(value);
+    const invalidKeyword = new RegExp(keywords[version]).test(value);
     const sketchyKeyword = new RegExp(keywords.warning).test(value);
 
-    if (!value) {
-      validator('');
-      updateMessage('');
-    } else if (!validateFormat) {
-      //:todo - ensure escapes are handled correctly
+    if (!validFormat) {
       validator('invalid');
       updateMessage(messages.format);
-    } else if (validateKeyword) {
+    } else if (invalidKeyword) {
       validator('invalid');
       updateMessage(messages.keyword);
     } else if (sketchyKeyword) {
@@ -44,24 +40,31 @@ const App: React.FC = () => {
     }
   };
 
-  useEffect(() => {
+  const versonSwitch = () => {
     switch (radioSelection) {
-      case 'es6': {
+      case 'es3': {
+        runChecks(radioSelection);
+        break;
+      }
+      case 'es6':
+      case 'es5': {
         if (isStrict) {
-          runChecks('es6Strict');
+          runChecks(`${radioSelection}Strict`);
         } else {
-          runChecks('es6');
+          runChecks(radioSelection);
         }
         break;
       }
-      default: {
-        if (isStrict) {
-          runChecks('es5Strict');
-        } else {
-          runChecks('es5');
-        }
-        break;
-      }
+      default: return;
+    }
+  }
+
+  useEffect(() => {
+    if (!value) {
+      validator('');
+      updateMessage('');
+    } else {
+      versonSwitch();
     }
   }, [isStrict, radioSelection, value]);
 
