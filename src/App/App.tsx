@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
-import {
-  keywords,
-  format,
-  messages
-} from './_constants';
+import { keywords, format, messages } from './_constants';
 
 import { Rules } from './components/Global/Rules';
 import { Validator } from './components/Validator';
@@ -15,7 +11,7 @@ import './_styles/index.css';
 
 const App: React.FC = () => {
   const [isStrict, handleStrict] = useState(false);
-  const [radioSelection, handleRadio] = useState('es6');
+  const [mode, handleRadio] = useState('es6');
   const [value, setValue] = useState('');
   const [validity, validator] = useState('');
   const [message, updateMessage] = useState('');
@@ -41,23 +37,24 @@ const App: React.FC = () => {
   };
 
   const versonSwitch = () => {
-    switch (radioSelection) {
+    switch (mode) {
       case 'es3': {
-        runChecks(radioSelection);
+        runChecks(mode);
         break;
       }
       case 'es6':
       case 'es5': {
         if (isStrict) {
-          runChecks(`${radioSelection}Strict`);
+          runChecks(`${mode}Strict`);
         } else {
-          runChecks(radioSelection);
+          runChecks(mode);
         }
         break;
       }
-      default: return;
+      default:
+        return;
     }
-  }
+  };
 
   useEffect(() => {
     if (!value) {
@@ -66,7 +63,7 @@ const App: React.FC = () => {
     } else {
       versonSwitch();
     }
-  }, [isStrict, radioSelection, value]);
+  }, [isStrict, mode, value]);
 
   const classes = classNames({
     main: true,
@@ -78,7 +75,7 @@ const App: React.FC = () => {
       <Rules />
       <Validator
         value={value}
-        radioSelection={radioSelection}
+        mode={mode}
         message={message}
         setValue={setValue}
         handleRadio={handleRadio}

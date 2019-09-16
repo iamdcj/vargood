@@ -4,7 +4,7 @@ import './styles/index.css';
 interface Props {
   value: string;
   message: string;
-  radioSelection: string;
+  mode: string;
   setValue: (value: string) => void;
   handleRadio: (value: string) => void;
   handleStrict: (value: boolean) => void;
@@ -12,7 +12,7 @@ interface Props {
 
 const Validator: React.SFC<Props> = ({
   value,
-  radioSelection,
+  mode,
   message,
   setValue,
   handleRadio,
@@ -51,9 +51,23 @@ const Validator: React.SFC<Props> = ({
                   className='control__input'
                   type='radio'
                   name='version'
+                  id='es3'
+                  value='es3'
+                  checked={mode === 'es3' ? true : false}
+                />
+              </div>
+              <label htmlFor='es5'>ES3</label>
+            </div>
+            <div className='control  control--flex'>
+              <div>
+                <input
+                  onChange={({ target }) => handleRadio(target.value)}
+                  className='control__input'
+                  type='radio'
+                  name='version'
                   id='es5'
                   value='es5'
-                  checked={radioSelection === 'es5' ? true : false}
+                  checked={mode === 'es5' ? true : false}
                 />
               </div>
               <label htmlFor='es5'>ES5</label>
@@ -67,24 +81,26 @@ const Validator: React.SFC<Props> = ({
                   name='version'
                   id='es6'
                   value='es6'
-                  checked={radioSelection === 'es6' ? true : false}
+                  checked={mode === 'es6' ? true : false}
                 />
               </div>
               <label htmlFor='es6'>ES6</label>
             </div>
           </div>
-          <div className='control  control--flex control--checkbox'>
-            <div>
-              <input
-                onChange={({ target }) => handleStrict(target.checked)}
-                className='control__input'
-                type='checkbox'
-                name='use-strict'
-                id='use-strict'
-              />
+          {mode !== 'es3' && (
+            <div className='control  control--flex control--checkbox'>
+              <div>
+                <input
+                  onChange={({ target }) => handleStrict(target.checked)}
+                  className='control__input'
+                  type='checkbox'
+                  name='use-strict'
+                  id='use-strict'
+                />
+              </div>
+              <label htmlFor='use-strict'>Strict mode?</label>
             </div>
-            <label htmlFor='use-strict'>Strict mode?</label>
-          </div>
+          )}
         </legend>
       </div>
     </section>
