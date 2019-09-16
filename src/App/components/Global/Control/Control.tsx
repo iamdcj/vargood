@@ -8,6 +8,8 @@ interface Props {
   checked?: boolean;
   onChange: any;
   type: string;
+  placeholder?: string;
+  className?: string;
 }
 
 const Control: React.SFC<Props> = ({
@@ -23,7 +25,7 @@ const Control: React.SFC<Props> = ({
     <div className='control  control--flex'>
       <div>
         <input
-          onChange={({ target }) => onChange(target)}
+          onChange={({ target }) => onChange(target.value)}
           className='control__input'
           type={type}
           name={name}

@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/index.css';
+import { Control } from '../Global/Control/Control';
 
 interface Props {
   value: string;
@@ -21,7 +22,7 @@ const Validator: React.SFC<Props> = ({
   return (
     <section className='validator'>
       <div className='validator__inner'>
-        {/* <h1 className='validator__title'>Validate Identifier</h1> */}
+        <h1 className='validator__title'>Validate Identifier</h1>
         <div className='control control--fw'>
           {value ? (
             <p className='validator__subtitle'>{message}</p>
@@ -44,48 +45,18 @@ const Validator: React.SFC<Props> = ({
         </div>
         <legend className='control-group'>
           <div className='controls'>
-            <div className='control  control--flex'>
-              <div>
-                <input
-                  onChange={({ target }) => handleRadio(target.value)}
-                  className='control__input'
-                  type='radio'
-                  name='version'
-                  id='es3'
-                  value='es3'
-                  checked={mode === 'es3' ? true : false}
-                />
-              </div>
-              <label htmlFor='es5'>ES3</label>
-            </div>
-            <div className='control  control--flex'>
-              <div>
-                <input
-                  onChange={({ target }) => handleRadio(target.value)}
-                  className='control__input'
-                  type='radio'
-                  name='version'
-                  id='es5'
-                  value='es5'
-                  checked={mode === 'es5' ? true : false}
-                />
-              </div>
-              <label htmlFor='es5'>ES5</label>
-            </div>
-            <div className='control  control--flex'>
-              <div>
-                <input
-                  onChange={({ target }) => handleRadio(target.value)}
-                  className='control__input'
-                  type='radio'
-                  name='version'
-                  id='es6'
-                  value='es6'
-                  checked={mode === 'es6' ? true : false}
-                />
-              </div>
-              <label htmlFor='es6'>ES6</label>
-            </div>
+            {['es3', 'es5', 'es6'].map((version: string) => (
+              <Control
+                onChange={handleRadio}
+                className='control__input'
+                type='radio'
+                name={version}
+                checked={version === mode}
+                id={version}
+                value={version}
+                label={version.toUpperCase()}
+              />
+            ))}
           </div>
           {mode !== 'es3' && (
             <div className='control  control--flex control--checkbox'>
