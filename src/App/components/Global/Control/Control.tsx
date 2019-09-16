@@ -6,6 +6,7 @@ interface Props {
   value: any;
   label: string;
   checked?: boolean;
+  hiddenLabel?: boolean;
   onChange: any;
   type: string;
   placeholder?: string;
@@ -19,22 +20,27 @@ const Control: React.SFC<Props> = ({
   label,
   checked,
   type,
+  hiddenLabel,
   onChange
 }) => {
   return (
     <div className='control  control--flex'>
-      <div>
-        <input
-          onChange={({ target }) => onChange(target.value)}
-          className='control__input'
-          type={type}
-          name={name}
-          id={id}
-          value={value}
-          checked={checked}
-        />
-      </div>
-      <label htmlFor={id}>{label}</label>
+      <input
+        onChange={({ target }) => {
+          if (type === 'checkbox') {
+            onChange(target.checked);
+          } else {
+            onChange(target.value);
+          }
+        }}
+        className='control__input'
+        type={type}
+        name={name}
+        id={id}
+        value={value}
+        checked={checked}
+      />
+      {!hiddenLabel && <label htmlFor={id}>{label}</label>}
     </div>
   );
 };

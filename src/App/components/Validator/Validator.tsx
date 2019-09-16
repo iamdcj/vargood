@@ -31,17 +31,17 @@ const Validator: React.SFC<Props> = ({
               Please enter your desired variable name
             </label>
           )}
-          <div>
-            <input
-              onChange={({ target }) => setValue(target.value)}
-              className='control__input'
-              type='text'
-              name='validator'
-              id='validator'
-              value={value}
-              placeholder='foo'
-            />
-          </div>
+          <Control
+            onChange={setValue}
+            className='control__input'
+            type='text'
+            label='validator'
+            hiddenLabel
+            name='validator'
+            id='validator'
+            value={value}
+            placeholder='foo'
+          />
         </div>
         <legend className='control-group'>
           <div className='controls'>
