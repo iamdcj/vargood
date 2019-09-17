@@ -15,8 +15,8 @@ const keywords: Keywords = {
   es3: /^(?:int|byte|char|goto|long|final|float|short|double|native|throws|boolean|abstract|volatile|transient|synchronized)$/,
   es5: /^(?:do|if|in|for|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|delete|export|import|return|switch|typeof|default|extends|finally|continue|debugger|function|arguments|instanceof)$/,
   es5Strict: /^(?:do|if|in|for|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|delete|export|import|return|switch|typeof|default|extends|finally|continue|debugger|function|arguments|instanceof|implements|let|private|public|yield|interface|package|protected|static)$/,
-  es6: /^(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|await|break|catch|class|const|super|throw|while|yield|delete|export|import|return|static|switch|typeof|default|extends|finally|package|continue|debugger|function|arguments|instanceof)$/,
-  es6Strict: /^(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|await|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof|implements|private|public|interface|package|protected)$/,
+  es6: /^(?:break|case|catch|class|const|continue|debugger|if|try|do|else|export|extends|finally|for|function|throw|await|in|instanceof|new|return|super|switch|this|delete|typeof|var|void|while|with|yield|default|import)$/,
+  es6Strict: /^(?:break|case|catch|class|const|continue|debugger|if|try|do|else|export|extends|finally|for|function|throw|await|in|instanceof|new|return|super|switch|this|delete|typeof|var|void|while|with|yield|default|import|let|implements|package|protected|static|interface|private|public)$/,
   warning: /^(?:nan|NaN|undefined|Infinity)$/i
 };
 
