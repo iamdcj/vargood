@@ -17,7 +17,7 @@ const Rules: React.FunctionComponent<Props> = () => {
       </button>
       <div className='rules__inner'>
         <div className='rules__content'>
-          <h3>Identifier Rules</h3>
+          <h3 className='rules__title'>Identifier Rules</h3>
           <ul>
             <li>A-Z, $, or _ to start identifier.</li>
             <li>Following characters can contain digits.</li>
