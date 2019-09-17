@@ -3,6 +3,7 @@ import './styles/index.css';
 import { Control } from '../Global/Control/Control';
 
 interface Props {
+  versions: string[];
   value: string;
   message: string;
   mode: string;
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const Validator: React.SFC<Props> = ({
+  versions,
   value,
   mode,
   message,
@@ -45,7 +47,7 @@ const Validator: React.SFC<Props> = ({
         </div>
         <legend className='control-group'>
           <div className='controls'>
-            {['es3', 'es5', 'es6'].map((version: string) => (
+            {versions.map((version: string) => (
               <Control
                 onChange={handleRadio}
                 className='control__input'

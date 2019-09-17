@@ -9,6 +9,8 @@ interface Keywords {
   warning: RegExp;
 }
 
+const versions = ['es6', 'es5', 'es3'];
+
 const keywords: Keywords = {
   es3: /^(?:int|byte|char|goto|long|final|float|short|double|native|throws|boolean|abstract|volatile|transient|synchronized)$/,
   es5: /^(?:do|if|in|for|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|delete|export|import|return|switch|typeof|default|extends|finally|continue|debugger|function|arguments|instanceof)$/,
@@ -26,4 +28,4 @@ const messages = {
   valid: 'All Good 👍'
 };
 
-export { keywords, format, messages };
+export { keywords, format, messages, versions };

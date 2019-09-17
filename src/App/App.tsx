@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
-import { keywords, format, messages } from './_constants';
+import { keywords, format, messages, versions } from './_constants';
 
 import { Rules } from './components/Global/Rules';
 import { Validator } from './components/Validator';
@@ -74,6 +74,7 @@ const App: React.FC = () => {
     <main className={classes}>
       <Rules />
       <Validator
+        versions={versions}
         value={value}
         mode={mode}
         message={message}
