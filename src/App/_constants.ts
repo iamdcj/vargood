@@ -1,4 +1,4 @@
-const format = /^(?:[\$A-Z_a-z])*$/;
+const format = /^[$A-Z_][0-9A-Z_$]*$/i;
 
 interface Keywords {
   [es3: string]: RegExp;
@@ -28,4 +28,4 @@ const messages = {
   valid: 'All Good 👍'
 };
 
-export { keywords, format, messages, versions };
+export { keywords, format, versions, messages };
